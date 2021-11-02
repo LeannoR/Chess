@@ -1,0 +1,13 @@
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\bin\Debug\netcoreapp3.1\Bankacılık.exe
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\bin\Debug\netcoreapp3.1\Bankacılık.deps.json
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\bin\Debug\netcoreapp3.1\Bankacılık.runtimeconfig.json
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\bin\Debug\netcoreapp3.1\Bankacılık.runtimeconfig.dev.json
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\bin\Debug\netcoreapp3.1\Bankacılık.dll
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\bin\Debug\netcoreapp3.1\Bankacılık.pdb
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\obj\Debug\netcoreapp3.1\Bankacılık.csproj.AssemblyReference.cache
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\obj\Debug\netcoreapp3.1\Bankacılık.AssemblyInfoInputs.cache
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\obj\Debug\netcoreapp3.1\Bankacılık.AssemblyInfo.cs
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\obj\Debug\netcoreapp3.1\Bankacılık.csproj.CoreCompileInputs.cache
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\obj\Debug\netcoreapp3.1\Bankacılık.dll
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\obj\Debug\netcoreapp3.1\Bankacılık.pdb
+C:\Users\OnurPC\source\repos\Bankacılık\Bankacılık\obj\Debug\netcoreapp3.1\Bankacılık.genruntimeconfig.cache

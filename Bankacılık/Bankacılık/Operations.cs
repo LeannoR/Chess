@@ -6,41 +6,51 @@ namespace Bankacılık
 {
     public class Operations
     {
-        public void Menu()
+        public int Menu1()
         {
-            int number = 0;
-            Console.Clear();
             Console.WriteLine("Lütfen seçiniz");
             Console.WriteLine("1- Yeni kayıt oluşturma");
             Console.WriteLine("2- Giriş yapma");
             Console.WriteLine("3- Çıkış");
+            string strnumber = Console.ReadLine();
+            int number = Convert.ToInt32(strnumber);
+            return number;
+        }
+        public string Signup()
+        {
+            string username = "";
+            string name = "";
+            string surname = "";
+            Console.Clear();
+            Console.Write("Kullanıcı adı : ");
+            username = Console.ReadLine();
+            Console.Write("İsim : ");
+            name = Console.ReadLine();
+            Console.Write("Soyisim : ");
+            surname = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Kaydınız oluşturulmuştur " + name + " " + surname);
+            return username;
 
-            switch (number)
+        }
+        public void Login()
+        {
+            string username = "";
+            Console.Clear();
+            Console.WriteLine("Kullanıcı adı : ");
+            if (username == Console.ReadLine())
             {
-                case 1:
-                    Console.Clear();
-                    Console.WriteLine("Kullanıcı adı : ");
-                    Console.WriteLine("İsim : ");
-                    Console.WriteLine("Soyisim : ");
-                    break;
-                
-                case 2:
-                    Console.Clear();
-                    Console.WriteLine("Kullanıcı adı : ");
-                    Console.WriteLine("Ne islem yapmak istersiniz?");
-                    Console.WriteLine("Para yatırma");
-                    Console.WriteLine("Para çekme");
-                    break;
-                case 3:
-                    Console.Clear();
-                    Console.WriteLine("Bankamızı kullandığınız için teşekkür ederiz, yine bekleriz");
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine("Bankamızı kullandığınız için teşekkür ederiz, yine bekleriz");
-                    break;
-
+                Console.WriteLine("Giriş başarılı");
             }
+            else
+            {
+                Console.WriteLine("Hatalı giriş yaptınız");
+            }
+            Console.WriteLine("Ne islem yapmak istersiniz?");
+            Console.WriteLine("Para yatırma");
+            Console.WriteLine("Para çekme");
         }
     }
 }
+
+  
