@@ -33,22 +33,11 @@ namespace Bankacılık
             return username;
 
         }
-        public void Login()
+        public string Login()
         {
-            string username = "";
             Console.Clear();
             Console.WriteLine("Kullanıcı adı : ");
-            if (username == Console.ReadLine())
-            {
-                Console.WriteLine("Giriş başarılı");
-            }
-            else
-            {
-                Console.WriteLine("Hatalı giriş yaptınız");
-            }
-            Console.WriteLine("Ne islem yapmak istersiniz?");
-            Console.WriteLine("Para yatırma");
-            Console.WriteLine("Para çekme");
+            return Console.ReadLine();
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
 
 namespace Bankacılık
 {
@@ -9,25 +11,48 @@ namespace Bankacılık
         {
             Console.WriteLine("Bankamıza hoşgeldiniz lütfen yapmak istediğiniz işlemi seçiniz");
             Operations O = new Operations();
-            for (; ; )
-            {
-                O.Menu1();
-                if (O.Menu1() == 1)
+            List<string> usernames = new List<string>();
+            string username = "";
+            int number = 0;
+            Loop:
+            number = O.Menu1();
+                if (number == 1)
                 {
-                    O.Signup();
+                    username = O.Signup();
+                    usernames.Add(username);
+                    goto Loop;
                 }
-                if (O.Menu1() == 2)
+                else if (number == 2)
                 {
-                    O.Login();
+                    bool control = usernames.Any(i => i == O.Login());
+                    if (control == true)
+                    {
+                        Console.WriteLine("Giriş başarılı");
+                        Console.WriteLine("1- Para Yatırma");
+                        Console.WriteLine("2- Para Çekme");
+                        string strnumber = Console.ReadLine();
+                        int number1 = Convert.ToInt32(strnumber);
+                    if(1 == number1)
+                    {
+
+                    }
+                    else if(2 == number1)
+                    {
+
+                    }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Giriş yapamadınız");
+                    goto Loop;
+                    }
                 }
-                if (O.Menu1() == 3)
+                else if (number == 3)
                 {
                     Console.Clear();
                     Console.WriteLine("Bankamızı kullandığınız için teşekkür ederiz, yine bekleriz");
-                    break;
                 }
-            }
-            Console.ReadLine();
+                Console.ReadLine();
         }
     }
 }
