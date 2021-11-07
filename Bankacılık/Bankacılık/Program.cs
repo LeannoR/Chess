@@ -11,20 +11,23 @@ namespace Bankacılık
         {
             Console.WriteLine("Bankamıza hoşgeldiniz lütfen yapmak istediğiniz işlemi seçiniz");
             Operations O = new Operations();
-            List<string> usernames = new List<string>();
-            string username = "";
+            List<user> userinfo = new List<user>();
+            //string username = "";
             int number = 0;
             Loop:
             number = O.Menu1();
                 if (number == 1)
                 {
-                    username = O.Signup();
-                    usernames.Add(username);
+                userinfo.Add(new user()
+                {
+                    money = 0,
+                    usernames = O.Signup()
+                });
                     goto Loop;
                 }
                 else if (number == 2)
                 {
-                    bool control = usernames.Any(i => i == O.Login());
+                    bool control = userinfo.Any(user => user.usernames == O.Login());
                     if (control == true)
                     {
                         Console.WriteLine("Giriş başarılı");
@@ -34,11 +37,35 @@ namespace Bankacılık
                         int number1 = Convert.ToInt32(strnumber);
                     if(1 == number1)
                     {
-
+                        foreach (user item in userinfo)
+                        {
+                            Console.WriteLine("Bakiyeniz : " + item.money);
+                        }
+                        Console.WriteLine("Yatırmak istediğiniz miktarı giriniz");
+                        string addstr = Console.ReadLine();
+                        int add = Convert.ToInt32(addstr);
+                        userinfo.Where(user => user.money == user.money).ToList().ForEach(user => user.money = user.money + add);
+                        foreach (user item in userinfo)
+                        {
+                            Console.WriteLine("Yeni bakiyeniz : " + item.money);
+                        }
+                        goto Loop;
                     }
                     else if(2 == number1)
                     {
-
+                        foreach (user item in userinfo)
+                        {
+                            Console.WriteLine("Bakiyeniz : " + item.money);
+                        }
+                        Console.WriteLine("Çekmek istediğiniz miktarı giriniz");
+                        string addstr = Console.ReadLine();
+                        int add = Convert.ToInt32(addstr);
+                        userinfo.Where(user => user.money == user.money).ToList().ForEach(user => user.money = user.money - add);
+                        foreach (user item in userinfo)
+                        {
+                            Console.WriteLine("Yeni bakiyeniz : " + item.money);
+                        }
+                        goto Loop;
                     }
                     }
                     else
