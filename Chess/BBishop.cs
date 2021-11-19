@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    public class Rook : Piece
+    public class Bishop : Piece
     {
         public override bool CanMove(string from, string to)
         {
             return true;
         }
-        
     }
 }
