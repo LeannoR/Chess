@@ -12,24 +12,24 @@ namespace Chess
 
         public Board()
         {
-            _squares[0] = new Rook();
-            _squares[1] = new Knight();
-            _squares[2] = new Bishop();
-            _squares[3] = new Queen();
-            _squares[4] = new King(PieceColor.Black);
-            _squares[5] = new Bishop();
-            _squares[6] = new Knight();
-            _squares[7] = new Rook();
-            _squares[8] = new Pawn();
-            _squares[9] = new Pawn();
-            _squares[10] = new Pawn();
-            _squares[11] = new Pawn();
-            _squares[12] = new Pawn();
-            _squares[13] = new Pawn();
-            _squares[14] = new Pawn();
-            _squares[15] = new Pawn();
-            _squares[16] = new Pawn();
-            _squares[17] = new Pawn();
+            //_squares[0] = new Rook();
+            //_squares[1] = new Knight();
+            //_squares[2] = new Bishop();
+            //_squares[3] = new Queen();
+            _squares[4] = new King(PieceColor.White);
+            //_squares[5] = new Bishop();
+            //_squares[6] = new Knight();
+            //_squares[7] = new Rook();
+            //_squares[8] = new Pawn();
+            //_squares[9] = new Pawn();
+            //_squares[10] = new Pawn();
+            //_squares[11] = new Pawn();
+            //_squares[12] = new Pawn();
+            //_squares[13] = new Pawn();
+            //_squares[14] = new Pawn();
+            //_squares[15] = new Pawn();
+            //_squares[16] = new Pawn();
+            //_squares[17] = new Pawn();
         }
 
         public void Update()

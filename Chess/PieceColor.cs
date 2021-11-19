@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    public class Bishop : Piece
+    public enum PieceColor
     {
-        public override bool CanMove(string from, string to)
-        {
-            return true;
-        }
+        White,
+        Black
     }
 }

@@ -8,6 +8,13 @@ namespace Chess
 {
     public class King : Piece
     {
+        public string Name { get; }
+
+        public King(PieceColor color) : base(color)
+        {
+            Name = "King";
+        }
+
         public override bool CanMove(string from, string to)
         {
             return false;
