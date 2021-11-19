@@ -16,7 +16,7 @@ namespace Chess
             _squares[1] = new Knight();
             _squares[2] = new Bishop();
             _squares[3] = new Queen();
-            _squares[4] = new King();
+            _squares[4] = new King(PieceColor.Black);
             _squares[5] = new Bishop();
             _squares[6] = new Knight();
             _squares[7] = new Rook();
