@@ -16,6 +16,5 @@ namespace Chess
         }
 
         public abstract bool CanMove(string from, string to);
-
     }
 }

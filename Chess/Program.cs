@@ -10,9 +10,10 @@ namespace Chess
     {
         static void Main(string[] args)
         {
+            string Move;
             var board = new Board();
-
-            while (true)
+            int x = 1;
+            while (x <= 2)
             {
                 //Pseudo Code
 
@@ -24,13 +25,19 @@ namespace Chess
                 //o piece 'e hedefe gidip gidemeyeceğini sor (parametre olarak: board + hedef konum)
                 //eğer bir sıkıntı yoksa hareketi yap
                 //eğer hedefteki taşı kırdıysan o taşı destroy et 
-                if (board.IsOver)
+                if (x == 1)
                 {
+                    Console.WriteLine("Lütfen hamlenizi yazınız");
+                    Move = Console.ReadLine();
+                    string[] Moves = Move.Split(' ');
+                    x = 2;
                     return;
                 }
                 //TODO: Siyah sırası
-                if (board.IsOver)
+                if (x == 2)
                 {
+                    Console.WriteLine("Lütfen hamlenizi yazınız");
+                    x = 1;
                     return;
                 }
             }

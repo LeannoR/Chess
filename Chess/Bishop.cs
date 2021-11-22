@@ -8,6 +8,10 @@ namespace Chess
 {
     public class Bishop : Piece
     {
+        public Bishop(PieceColor color) : base(color)
+        {
+
+        }
         public override bool CanMove(string from, string to)
         {
             return true;
