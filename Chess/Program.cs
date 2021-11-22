@@ -10,7 +10,6 @@ namespace Chess
     {
         static void Main(string[] args)
         {
-            string Move;
             var board = new Board();
             int x = 1;
             while (x <= 2)
@@ -27,9 +26,28 @@ namespace Chess
                 //eğer hedefteki taşı kırdıysan o taşı destroy et 
                 if (x == 1)
                 {
-                    Console.WriteLine("Lütfen hamlenizi yazınız");
-                    Move = Console.ReadLine();
-                    string[] Moves = Move.Split(' ');
+                    while (true)
+                    {
+                        Console.WriteLine("Lütfen hamlenizi yazınız");
+                        var move = Console.ReadLine();
+                        string[] moves = move.Split(' ');
+                        string fromString = moves[0];
+                        string toString = moves[1];
+                        int fromIndex = board.GetIndex(fromString);
+                        int toIndex = board.GetIndex(toString);
+                        if (board.FindColor(fromIndex) == false)
+                        {
+                            Console.WriteLine("Yanlış hamle yaptınız");
+                        }
+                        else
+                        {
+                            var fromPiece = board.Squares[fromIndex];
+                            fromPiece.CanMove(fromIndex, toIndex, board);
+                            break;
+                        }
+                    }
+
+
                     x = 2;
                     return;
                 }

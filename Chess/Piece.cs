@@ -15,6 +15,6 @@ namespace Chess
             this.Color = color;
         }
 
-        public abstract bool CanMove(string from, string to);
+        public abstract bool CanMove(int from, int to , Board board);
     }
 }

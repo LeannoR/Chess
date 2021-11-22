@@ -12,10 +12,26 @@ namespace Chess
         {
 
         }
-        public override bool CanMove(string from, string to)
+        public override bool CanMove(int fromIndex , int toIndex , Board board)
         {
-
-            return true;
+            // TODO: İlk hareketinde pawn 2 kere gidebilmeli
+            // Piyon çaprazında taş varsa oraya gidebilmeli
+            // Piyonun önünde taş varsa gitmemeli
+            if(Color == PieceColor.White)
+            {
+                if(toIndex - fromIndex == 8)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if(fromIndex - toIndex == 8)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
