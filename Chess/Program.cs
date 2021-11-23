@@ -10,6 +10,7 @@ namespace Chess
     {
         static void Main(string[] args)
         {
+            int Turn = 0;
             var board = new Board();
             int x = 1;
             while (x <= 2)
@@ -35,7 +36,7 @@ namespace Chess
                         string toString = moves[1];
                         int fromIndex = board.GetIndex(fromString);
                         int toIndex = board.GetIndex(toString);
-                        if (board.FindColor(fromIndex) == false)
+                        if (board.FindColor(fromIndex, x) == false)
                         {
                             Console.WriteLine("Yanlış hamle yaptınız");
                         }
@@ -58,6 +59,7 @@ namespace Chess
                     x = 1;
                     return;
                 }
+                Turn++;
             }
             Console.ReadLine();
         }

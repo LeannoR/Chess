@@ -89,18 +89,25 @@ namespace Chess
             return square;
         }
 
-        public bool FindColor(int square)
+        public bool FindColor(int square, int x)
         {
-            // TODO: Null check yapmak gerekli
-            // Siyah oyuncu için de çalışması lazım
-            if(Squares[square].Color == PieceColor.White)
+            // Null araştır
+            if(Squares[square] != null)
             {
-                return true;
+                if (Squares[square].Color == PieceColor.White || x == 1)
+                {
+                    return true;
+                }
+                else if (Squares[square].Color == PieceColor.Black || x == 2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }
