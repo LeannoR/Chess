@@ -15,7 +15,7 @@ namespace Chess
             Name = "King";
         }
 
-        public override bool CanMove(string from, string to)
+        public override bool CanMove(int fromIndex, int toIndex, Board board)
         {
             return false;
         }

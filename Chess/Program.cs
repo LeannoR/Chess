@@ -43,8 +43,14 @@ namespace Chess
                         else
                         {
                             var fromPiece = board.Squares[fromIndex];
-                            fromPiece.CanMove(fromIndex, toIndex, board);
-                            break;
+                            if(fromPiece.CanMove(fromIndex, toIndex, board) == false)
+                            {
+                                Console.WriteLine("Yanlış hamle yaptınız");
+                            }
+                            else
+                            {
+                                break;
+                            }
                         }
                     }
 
@@ -55,7 +61,32 @@ namespace Chess
                 //TODO: Siyah sırası
                 if (x == 2)
                 {
-                    Console.WriteLine("Lütfen hamlenizi yazınız");
+                    while (true)
+                    {
+                        Console.WriteLine("Lütfen hamlenizi yazınız");
+                        var move = Console.ReadLine();
+                        string[] moves = move.Split(' ');
+                        string fromString = moves[0];
+                        string toString = moves[1];
+                        int fromIndex = board.GetIndex(fromString);
+                        int toIndex = board.GetIndex(toString);
+                        if (board.FindColor(fromIndex, x) == false)
+                        {
+                            Console.WriteLine("Yanlış hamle yaptınız");
+                        }
+                        else
+                        {
+                            var fromPiece = board.Squares[fromIndex];
+                            if (fromPiece.CanMove(fromIndex, toIndex, board) == false)
+                            {
+                                Console.WriteLine("Yanlış hamle yaptınız");
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                    }
                     x = 1;
                     return;
                 }
