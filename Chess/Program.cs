@@ -29,7 +29,7 @@ namespace Chess
                 {
                     while (true)
                     {
-                        Console.WriteLine("Lütfen hamlenizi yazınız");
+                        Console.WriteLine("Beyaz oyuncu lütfen hamlenizi yazınız");
                         var move = Console.ReadLine();
                         string[] moves = move.Split(' ');
                         string fromString = moves[0];
@@ -49,6 +49,8 @@ namespace Chess
                             }
                             else
                             {
+                                board.Squares[toIndex] = board.Squares[fromIndex];
+                                board.Squares[fromIndex] = null;
                                 break;
                             }
                         }
@@ -56,14 +58,13 @@ namespace Chess
 
 
                     x = 2;
-                    return;
                 }
                 //TODO: Siyah sırası
                 if (x == 2)
                 {
                     while (true)
                     {
-                        Console.WriteLine("Lütfen hamlenizi yazınız");
+                        Console.WriteLine("Siyah oyuncu lütfen hamlenizi yazınız");
                         var move = Console.ReadLine();
                         string[] moves = move.Split(' ');
                         string fromString = moves[0];
@@ -83,12 +84,13 @@ namespace Chess
                             }
                             else
                             {
+                                board.Squares[toIndex] = board.Squares[fromIndex];
+                                board.Squares[fromIndex] = null;
                                 break;
                             }
                         }
                     }
                     x = 1;
-                    return;
                 }
                 Turn++;
             }

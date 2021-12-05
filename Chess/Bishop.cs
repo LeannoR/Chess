@@ -14,86 +14,144 @@ namespace Chess
         }
         public override bool CanMove(int fromIndex , int toIndex , Board board)
         {
+            int piecePath = fromIndex;
+
             if (Color == PieceColor.White)
             {
                 while (toIndex > fromIndex)
                 {
-                    if ((toIndex - fromIndex) % 8 == 7)
+                    if ((toIndex - fromIndex) % 7 == 0)
                     {
-                        fromIndex += 7;
+                        piecePath += 7;
 
-                        if (fromIndex == toIndex)
+                        if (piecePath == toIndex)
                         {
-                            if((board.Squares[toIndex].Color == PieceColor.Black) || board.Squares[toIndex] == null)
+                            if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.Black)
                             {
                                 return true;
                             }
+                            else if (board.Squares[toIndex].Color == PieceColor.White)
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
-                        else if(fromIndex < toIndex)
+                        else if(piecePath < toIndex)
                         {
-                            if(board.Squares[fromIndex] != null)
+                            if(board.Squares[piecePath] == null)
+                            {
+                                continue;
+                            }
+                            else if(board.Squares[piecePath].Color == PieceColor.White || board.Squares[piecePath].Color == PieceColor.Black || piecePath % 8 == 0 || piecePath % 8 == 7)
                             {
                                 return false;
                             }
                         }
                     }
-                    else if ((toIndex - fromIndex) % 8 == 1)
+                    else if ((toIndex - fromIndex) % 9 == 0)
                     {
-                        fromIndex += 9;
-                        if (fromIndex == toIndex)
+                        piecePath += 9;
+                        if (piecePath == toIndex)
                         {
-                            if ((board.Squares[toIndex].Color == PieceColor.Black) || board.Squares[toIndex] == null)
+                            if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.Black)
                             {
                                 return true;
                             }
-                        }
-                        else if (fromIndex < toIndex)
-                        {
-                            if (board.Squares[fromIndex] != null)
+                            else if (board.Squares[toIndex].Color == PieceColor.White)
+                            {
+                                return false;
+                            }
+                            else
                             {
                                 return false;
                             }
                         }
+                        else if (piecePath < toIndex)
+                        {
+                            if (board.Squares[piecePath] == null)
+                            {
+                                continue;
+                            }
+                            else if (board.Squares[piecePath].Color == PieceColor.White || board.Squares[piecePath].Color == PieceColor.Black || piecePath % 8 == 0 || piecePath % 8 == 7)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return false;
                     }
                 }
                 while (fromIndex > toIndex)
                 {
-                    if ((fromIndex - toIndex) % 8 == 7)
+                    if ((fromIndex - toIndex) % 7 == 0)
                     {
-                        toIndex += 7;
+                        piecePath -= 7;
 
-                        if (fromIndex == toIndex)
+                        if (piecePath == toIndex)
                         {
-                            if ((board.Squares[toIndex].Color == PieceColor.Black) || board.Squares[toIndex] == null)
+                            if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.Black)
                             {
                                 return true;
                             }
+                            else if (board.Squares[toIndex].Color == PieceColor.White)
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
-                        else if (toIndex < fromIndex)
+                        else if (toIndex < piecePath)
                         {
-                            if (board.Squares[toIndex] != null)
+                            if (board.Squares[piecePath] == null)
+                            {
+                                continue;
+                            }
+                            else if (board.Squares[piecePath].Color == PieceColor.White || board.Squares[piecePath].Color == PieceColor.Black || piecePath % 8 == 0 || piecePath % 8 == 7)
                             {
                                 return false;
                             }
                         }
                     }
-                    else if ((fromIndex - toIndex) % 8 == 1)
+                    else if ((fromIndex - toIndex) % 9 == 0)
                     {
-                        toIndex += 9;
-                        if (fromIndex == toIndex)
+                        piecePath -= 9;
+                        if (piecePath == toIndex)
                         {
-                            if ((board.Squares[toIndex].Color == PieceColor.Black) || board.Squares[toIndex] == null)
+                            if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.Black)
                             {
                                 return true;
                             }
-                        }
-                        else if (toIndex < fromIndex)
-                        {
-                            if (board.Squares[toIndex] != null)
+                            else if (board.Squares[toIndex].Color == PieceColor.White)
+                            {
+                                return false;
+                            }
+                            else
                             {
                                 return false;
                             }
                         }
+                        else if (toIndex < piecePath)
+                        {
+                            if (board.Squares[piecePath] == null)
+                            {
+                                continue;
+                            }
+                            else if (board.Squares[piecePath].Color == PieceColor.White || board.Squares[piecePath].Color == PieceColor.Black || piecePath % 8 == 0 || piecePath % 8 == 7)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return false;
                     }
                 }
             }
@@ -101,82 +159,138 @@ namespace Chess
             {
                 while (toIndex > fromIndex)
                 {
-                    if ((toIndex - fromIndex) % 8 == 7)
+                    if ((toIndex - fromIndex) % 7 == 0)
                     {
-                        fromIndex += 7;
+                        piecePath += 7;
 
-                        if (fromIndex == toIndex)
+                        if (piecePath == toIndex)
                         {
-                            if ((board.Squares[toIndex].Color == PieceColor.White) || board.Squares[toIndex] == null)
+                            if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.White)
                             {
                                 return true;
                             }
+                            else if (board.Squares[toIndex].Color == PieceColor.Black)
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
-                        else if (fromIndex < toIndex)
+                        else if (piecePath < toIndex)
                         {
-                            if (board.Squares[fromIndex] != null)
+                            if (board.Squares[piecePath] == null)
+                            {
+                                continue;
+                            }
+                            else if (board.Squares[piecePath].Color == PieceColor.White || board.Squares[piecePath].Color == PieceColor.Black || piecePath % 8 == 0 || piecePath % 8 == 7)
                             {
                                 return false;
                             }
                         }
                     }
-                    else if ((toIndex - fromIndex) % 8 == 1)
+                    else if ((toIndex - fromIndex) % 9 == 0)
                     {
-                        fromIndex += 9;
-                        if (fromIndex == toIndex)
+                        piecePath += 9;
+                        if (piecePath == toIndex)
                         {
-                            if ((board.Squares[toIndex].Color == PieceColor.White) || board.Squares[toIndex] == null)
+                            if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.White)
                             {
                                 return true;
                             }
-                        }
-                        else if (fromIndex < toIndex)
-                        {
-                            if (board.Squares[fromIndex] != null)
+                            else if (board.Squares[toIndex].Color == PieceColor.Black)
+                            {
+                                return false;
+                            }
+                            else
                             {
                                 return false;
                             }
                         }
+                        else if (piecePath < toIndex)
+                        {
+                            if (board.Squares[piecePath] == null)
+                            {
+                                continue;
+                            }
+                            else if (board.Squares[piecePath].Color == PieceColor.White || board.Squares[piecePath].Color == PieceColor.Black || piecePath % 8 == 0 || piecePath % 8 == 7)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return false;
                     }
                 }
                 while (fromIndex > toIndex)
                 {
-                    if ((fromIndex - toIndex) % 8 == 7)
+                    if ((fromIndex - toIndex) % 7 == 0)
                     {
-                        toIndex += 7;
+                        piecePath -= 7;
 
-                        if (fromIndex == toIndex)
+                        if (piecePath == toIndex)
                         {
-                            if ((board.Squares[toIndex].Color == PieceColor.White) || board.Squares[toIndex] == null)
+                            if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.White)
                             {
                                 return true;
                             }
+                            else if (board.Squares[toIndex].Color == PieceColor.Black)
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
-                        else if (toIndex < fromIndex)
+                        else if (toIndex < piecePath)
                         {
-                            if (board.Squares[toIndex] != null)
+                            if (board.Squares[piecePath] == null)
+                            {
+                                continue;
+                            }
+                            else if (board.Squares[piecePath].Color == PieceColor.White || board.Squares[piecePath].Color == PieceColor.Black || piecePath % 8 == 0 || piecePath % 8 == 7)
                             {
                                 return false;
                             }
                         }
                     }
-                    else if ((fromIndex - toIndex) % 8 == 1)
+                    else if ((fromIndex - toIndex) % 9 == 0)
                     {
-                        toIndex += 9;
-                        if (fromIndex == toIndex)
+                        piecePath -= 9;
+                        if (piecePath == toIndex)
                         {
-                            if ((board.Squares[toIndex].Color == PieceColor.White) || board.Squares[toIndex] == null)
+                            if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.White)
                             {
                                 return true;
                             }
-                        }
-                        else if (toIndex < fromIndex)
-                        {
-                            if (board.Squares[toIndex] != null)
+                            else if (board.Squares[toIndex].Color == PieceColor.Black)
+                            {
+                                return false;
+                            }
+                            else
                             {
                                 return false;
                             }
                         }
+                        else if (toIndex < piecePath)
+                        {
+                            if (board.Squares[piecePath] == null)
+                            {
+                                continue;
+                            }
+                            else if (board.Squares[piecePath].Color == PieceColor.White || board.Squares[piecePath].Color == PieceColor.Black || piecePath % 8 == 0 || piecePath % 8 == 7)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return false;
                     }
                 }
             }

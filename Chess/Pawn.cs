@@ -13,29 +13,140 @@ namespace Chess
 
         }
         public override bool CanMove(int fromIndex , int toIndex , Board board)
-        {   //Geçerken alma kuralını uygula
-            // Piyonun önünde taş varsa gitmemeli
-            if(Color == PieceColor.White)
+        {   
+            int piecePath = fromIndex;
+
+            if (Color == PieceColor.White)
             {
-                if(toIndex - fromIndex == 8 || ((toIndex <= 15 && toIndex >= 8) && (toIndex - fromIndex == 16)))
+                while (toIndex > fromIndex)
                 {
-                    return true;
+                    if (toIndex - fromIndex == 8 && board.Squares[toIndex] == null)
+                    {
+                        return true;
+                    }
+                    else if (toIndex - fromIndex == 16 && board.Squares[toIndex] == null && fromIndex <= 15 && fromIndex >= 8)
+                    {
+                        piecePath += 8;
+
+                        if (toIndex == piecePath)
+                        {
+                            return true;
+                        }
+                        else if (piecePath < toIndex && board.Squares[piecePath] == null)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else if (toIndex - fromIndex == 9)
+                    {
+                        if (fromIndex % 8 == 7)
+                        {
+                            return false;
+                        }
+                        else if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.White)
+                        {
+                            return false;
+                        }
+                        else if (board.Squares[toIndex].Color == PieceColor.Black)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else if (toIndex - fromIndex == 7)
+                    {
+                        if (fromIndex % 8 == 0)
+                        {
+                            return false;
+                        }
+                        else if(board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.White)
+                        {
+                            return false;
+                        }
+                        else if (board.Squares[toIndex].Color == PieceColor.Black)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
                 }
-                if((toIndex - fromIndex == 9 || toIndex - fromIndex == 7) && (board.Squares[toIndex].Color == PieceColor.Black) && (fromIndex % 8 == 0 || fromIndex % 8 == 7))
-                {
-                    return true;
-                }
+                return false;
             }
-            else
+            if (Color == PieceColor.Black)
             {
-                if(fromIndex - toIndex == 8 || ((fromIndex >= 48 && fromIndex <= 55) && (fromIndex - toIndex == 16)))
+                while (fromIndex > toIndex)
                 {
-                    return true;
+                    if (fromIndex - toIndex == 8 && board.Squares[toIndex] == null)
+                    {
+                        return true;
+                    }
+                    else if (fromIndex - toIndex == 16 && board.Squares[toIndex] == null && fromIndex <= 55 && fromIndex >= 48)
+                    {
+                        piecePath -= 8;
+
+                        if (toIndex == piecePath)
+                        {
+                            return true;
+                        }
+                        else if (piecePath > toIndex && board.Squares[piecePath] == null)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else if (fromIndex - toIndex == 9)
+                    {
+                        if (fromIndex % 8 == 0)
+                        {
+                            return false;
+                        }
+                        else if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.Black)
+                        {
+                            return false;
+                        }
+                        else if (board.Squares[toIndex].Color == PieceColor.White)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else if (fromIndex - toIndex == 7)
+                    {
+                        if (fromIndex % 8 == 7)
+                        {
+                            return false;
+                        }
+                        else if (board.Squares[toIndex] == null || board.Squares[toIndex].Color == PieceColor.Black)
+                        {
+                            return false;
+                        }
+                        else if (board.Squares[toIndex].Color == PieceColor.White)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
                 }
-                if ((fromIndex - toIndex == 9 || fromIndex - toIndex == 7) && (board.Squares[toIndex].Color == PieceColor.White) && (fromIndex % 8 == 0 || fromIndex % 8 == 7))
-                {
-                    return true;
-                }
+                return false;
             }
             return false;
         }

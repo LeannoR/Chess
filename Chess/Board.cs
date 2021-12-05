@@ -94,11 +94,11 @@ namespace Chess
             // Null araştır
             if(Squares[square] != null)
             {
-                if (Squares[square].Color == PieceColor.White || x == 1)
+                if (Squares[square].Color == PieceColor.White && x == 1)
                 {
                     return true;
                 }
-                else if (Squares[square].Color == PieceColor.Black || x == 2)
+                else if (Squares[square].Color == PieceColor.Black && x == 2)
                 {
                     return true;
                 }
